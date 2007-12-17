@@ -27,7 +27,6 @@ BuildRequires:	libnet1.0.2-devel
 BuildRequires:	openssl-devel
 BuildRequires:	pam-devel
 BuildRequires:	tetex-texi2html
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Oasis is a Network Access Server (NAS) for an operator neutral public access
