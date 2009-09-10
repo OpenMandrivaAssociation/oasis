@@ -1,7 +1,7 @@
 Summary:	Oasis - Open Access Server
 Name:		oasis
 Version:	1.0
-Release:	%mkrel 8
+Release:	%mkrel 9
 License:	BSD
 Group:		System/Servers
 URL:		http://software.stockholmopen.net/
