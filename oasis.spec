@@ -1,7 +1,7 @@
 Summary:	Oasis - Open Access Server
 Name:		oasis
 Version:	1.0
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	BSD
 Group:		System/Servers
 URL:		http://software.stockholmopen.net/
@@ -20,7 +20,7 @@ Requires:	php-pgsql
 Requires:	postgresql
 Requires:	ruby
 BuildRequires:	autoconf2.5
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	flex
 BuildRequires:	libpcap-devel >= 0.7.2
 BuildRequires:	libnet1.0.2-devel
@@ -45,11 +45,11 @@ bzcat %{SOURCE2} > oasis.pam
 %build
 export WANT_AUTOCONF_2_5=1
 rm -f configure
-libtoolize --copy --force; aclocal-1.7 -I support;  autoconf --force;  autoheader;  automake-1.7 --foreign --add-missing
+libtoolize --copy --force; aclocal -I support;  autoconf --force;  autoheader;  automake --foreign --add-missing
 
 pushd libcfg
 rm -f configure
-libtoolize --copy --force; aclocal-1.7;  autoconf --force;  autoheader;  automake-1.7 --foreign --add-missing
+libtoolize --copy --force; aclocal;  autoconf --force;  autoheader;  automake --foreign --add-missing
 popd
 
 %configure2_5x \
