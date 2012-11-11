@@ -1,0 +1,54 @@
+diff -Naur oasis-1.0/Makefile.am oasis-1.0.oden/Makefile.am
+--- oasis-1.0/Makefile.am	2002-04-25 13:07:53.000000000 +0200
++++ oasis-1.0.oden/Makefile.am	2004-11-10 16:09:13.722511072 +0100
+@@ -15,6 +15,7 @@
+                 missing mkinstalldirs ylwrap 
+ DEBIAN_FILES=changelog control copyright rules conffiles
+ CONTRIB_FILES=mrtg-stats mrtg-stats.cfg
++DESTDIR=
+ 
+ etc/fwcd.conf: $(top_srcdir)/etc/fwcd.conf.in config.status
+ 	test -d etc || mkdir etc
+@@ -46,21 +47,21 @@
+ AM_CPPFLAGS = -DSYSCONFDIR=\"$(sysconfdir)\"
+ 
+ install-data-local:
+-	@echo "Installing sample config file in $(sysconfdir)/oasis.conf";
+-	@if [ -f $(sysconfdir)/oasis.conf ]; then \
+-		echo "A configuration file $(sysconfdir)/oasis.conf already"\
++	@echo "Installing sample config file in $(DESTDIR)$(sysconfdir)/oasis.conf";
++	@if [ -f $(DESTDIR)$(sysconfdir)/oasis.conf ]; then \
++		echo "A configuration file $(DESTDIR)$(sysconfdir)/oasis.conf already"\
+ 		     " exists (leaving untouched)"; \
+ 	else  \
+-		$(mkinstalldirs) $(sysconfdir) ; \
+-		install -b -m 0600 etc/oasis.conf $(sysconfdir); \
++		$(mkinstalldirs) $(DESTDIR)$(sysconfdir) ; \
++		install -b -m 0600 etc/oasis.conf $(DESTDIR)$(sysconfdir); \
+ 	fi;
+-	@echo "Installing the firewall script in $(sbindir)/oasis-firewall-sample";
+-	@if [ -f $(sbindir)/oasis-firewall-sample ]; then \
+-		echo "A firewall script $(sbindir)/oasis-firewall-sample already"\
++	@echo "Installing the firewall script in $(DESTDIR)$(sbindir)/oasis-firewall-sample";
++	@if [ -f $(DESTDIR)$(sbindir)/oasis-firewall-sample ]; then \
++		echo "A firewall script $(DESTDIR)$(sbindir)/oasis-firewall-sample already"\
+ 		     " exists (leaving untouched)"; \
+ 	else \
+-		$(mkinstalldirs) $(sbindir) ; \
+-		install -b -m 0755 $(top_srcdir)/scripts/firewall $(sbindir)/oasis-firewall-sample; \
++		$(mkinstalldirs) $(DESTDIR)$(sbindir) ; \
++		install -b -m 0755 $(top_srcdir)/scripts/firewall $(DESTDIR)$(sbindir)/oasis-firewall-sample; \
+ 	fi;
+ 
+ celan: clean
+diff -Naur oasis-1.0/www/Makefile.am oasis-1.0.oden/www/Makefile.am
+--- oasis-1.0/www/Makefile.am	2002-03-25 15:02:06.000000000 +0100
++++ oasis-1.0.oden/www/Makefile.am	2004-11-10 16:10:57.363755208 +0100
+@@ -3,6 +3,7 @@
+ 
+ EXTRA_DIST=common.php index.php stats.php list.php sthlmopen.png
+ www_FILES=common.php index.php stats.php list.php sthlmopen.png
++DESTDIR=
+ 
+ install-data-local:
+ 	@echo "Installing the www files in $(DESTDIR)$(wwwdir)";

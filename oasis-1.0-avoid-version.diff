@@ -1,0 +1,25 @@
+diff -Naur oasis-1.0/libcfg/src/Makefile.am oasis-1.0.oden/libcfg/src/Makefile.am
+--- oasis-1.0/libcfg/src/Makefile.am	2002-02-11 14:51:36.000000000 +0100
++++ oasis-1.0.oden/libcfg/src/Makefile.am	2004-11-10 17:45:06.039026040 +0100
+@@ -1,6 +1,8 @@
+ lib_LTLIBRARIES = libcfg.la
+ 
+ libcfg_la_SOURCES = libcfg.c lexer.l
++libcfg_la_LDFLAGS = -avoid-version
+ include_HEADERS = libcfg.h
+ 
+ celan: clean
++
+diff -Naur oasis-1.0/src/Makefile.am oasis-1.0.oden/src/Makefile.am
+--- oasis-1.0/src/Makefile.am	2002-04-25 13:07:53.000000000 +0200
++++ oasis-1.0.oden/src/Makefile.am	2004-11-10 17:43:50.164560712 +0100
+@@ -24,7 +24,9 @@
+ LDADD=@LIBOBJS@ -lcfg
+ 
+ libprobe_ping_la_SOURCES = ping.c
++libprobe_ping_la_LDFLAGS = -avoid-version
+ libprobe_arping_la_SOURCES = arping.c
++libprobe_arping_la_LDFLAGS = -avoid-version
+ 
+ AM_CPPFLAGS = -DSYSCONFDIR=\"$(sysconfdir)\"
+ INCLUDES = -I$(top_srcdir) -I$(top_srcdir)/libcfg/src
