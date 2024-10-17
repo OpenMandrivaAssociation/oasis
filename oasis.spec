@@ -4,7 +4,7 @@ Version:	1.0
 Release:	%mkrel 10
 License:	BSD
 Group:		System/Servers
-URL:		http://software.stockholmopen.net/
+URL:		https://software.stockholmopen.net/
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	init-macbind.sql.bz2
 Source2:	oasis.pam.bz2
